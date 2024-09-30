@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo/constants/colors.dart';
+import 'package:todo/widgets/todo_item.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -13,12 +14,38 @@ class Home extends StatelessWidget {
           child: Column(
             children: [
               searchBox(),
-              ListView(
-                children: [Container(color: Colors.black, child: Text("hhhh"))],
-              )
+              Expanded(
+                child: ListView(
+                  children: [
+                    Container(
+                        margin: EdgeInsets.only(top: 50, bottom: 20),
+                        child: Text("All todos",
+                            style: TextStyle(
+                                fontSize: 30, fontWeight: FontWeight.bold))),
+                    TodoItem(),
+                  ],
+                ),
+              ),
             ],
           )),
     );
+  }
+
+  Widget searchBox() {
+    return Container(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(20)),
+        child: TextField(
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.all(0),
+            hintText: 'Search',
+            hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
+            border: InputBorder.none,
+            prefixIcon: Icon(Icons.search, color: Colors.grey, size: 20),
+            prefixIconConstraints: BoxConstraints(maxWidth: 20, minHeight: 25),
+          ),
+        ));
   }
 
   AppBar _buildAppBar() {
@@ -41,21 +68,4 @@ class Home extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget searchBox() {
-  return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(20)),
-      child: TextField(
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(0),
-          hintText: 'Search',
-          hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
-          border: InputBorder.none,
-          prefixIcon: Icon(Icons.search, color: Colors.grey, size: 20),
-          prefixIconConstraints: BoxConstraints(maxWidth: 20, minHeight: 25),
-        ),
-      ));
 }
