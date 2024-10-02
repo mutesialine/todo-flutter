@@ -5,10 +5,14 @@ class TodoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        margin: EdgeInsets.only(bottom: 20),
         child: ListTile(
-            onTap: () {},
+            onTap: () {
+              print("clicked on the button");
+            },
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             tileColor: Colors.white,
             leading: Icon(Icons.check_box,
                 color: const Color.fromARGB(255, 9, 97, 169)),
@@ -26,7 +30,9 @@ class TodoItem extends StatelessWidget {
                 child: IconButton(
                     iconSize: 18,
                     color: Colors.white,
-                    onPressed: () {},
-                    icon: Icon(Icons.delete)))));
+                    icon: Icon(Icons.delete),
+                    onPressed: () {
+                      print("clicked on the button");
+                    }))));
   }
 }

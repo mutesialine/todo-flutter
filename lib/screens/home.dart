@@ -17,11 +17,15 @@ class Home extends StatelessWidget {
               Expanded(
                 child: ListView(
                   children: [
+                    
                     Container(
                         margin: EdgeInsets.only(top: 50, bottom: 20),
                         child: Text("All todos",
                             style: TextStyle(
                                 fontSize: 30, fontWeight: FontWeight.bold))),
+                    TodoItem(),
+                    TodoItem(),
+                    TodoItem(),
                     TodoItem(),
                   ],
                 ),
